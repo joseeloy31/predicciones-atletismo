@@ -1,0 +1,262 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 14px;  /* Añadimos espacio entre las tablas */
+}
+
+/* Contenedor de las tablas */
+.table-container,
+.tabla-dorsales-container {
+    background: white;
+    padding: 0px;  /* Añadimos padding para separar las tablas */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 90%;
+    text-align: center;
+    overflow-x: auto;
+}
+
+/* Tabla de pruebas (solo afectará a la tabla con clase .tabla-principal) */
+.tabla-principal {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;  /* Aseguramos que la fuente es 12px */
+    margin: 0;
+}
+
+/* Definimos los anchos de las columnas de la tabla principal */
+.tabla-principal th:nth-child(1),
+.tabla-principal td:nth-child(1),
+.tabla-principal th:nth-child(4),
+.tabla-principal td:nth-child(4) {
+    width: 8%;  /* 1ra y 4ta columna */
+}
+
+.tabla-principal th:nth-child(2),
+.tabla-principal td:nth-child(2),
+.tabla-principal th:nth-child(5),
+.tabla-principal td:nth-child(5) {
+    width: 30%;  /* 2da y 5ta columna */
+}
+
+.tabla-principal th:nth-child(3),
+.tabla-principal td:nth-child(3),
+.tabla-principal th:nth-child(6),
+.tabla-principal td:nth-child(6) {
+    width: 12%;  /* 3ra y 6ta columna */
+}
+
+/* Estilo para la cabecera fija */
+.tabla-principal thead th {
+    position: sticky;
+    top: 0;
+    background-color: #007BFF;
+    color: white;
+    z-index: 1;
+    padding: 6px;  /* Reducido de 8px a 6px */
+}
+
+/* Estilo de las celdas de la tabla principal */
+.tabla-principal th, .tabla-principal td {
+    border: 1px solid #ddd;
+    padding: 6px 8px;  /* Reducido de 8px 10px a 6px 8px */
+    text-align: left;
+}
+
+/* Filas impares: columnas 1-3 blancas, columnas 4-6 grises */
+.tabla-principal tr:nth-child(odd):not(:last-child) td:nth-child(-n+3) {
+    background-color: #ffffff;
+}
+
+.tabla-principal tr:nth-child(odd):not(:last-child) td:nth-child(n+4) {
+    background-color: #f2f2f2;
+}
+
+/* Filas pares: columnas 1-3 grises, columnas 4-6 blancas */
+.tabla-principal tr:nth-child(even):not(:last-child) td:nth-child(-n+3) {
+    background-color: #f2f2f2;
+}
+
+.tabla-principal tr:nth-child(even):not(:last-child) td:nth-child(n+4) {
+    background-color: #ffffff;
+}
+
+/* Tabla de dorsales (mantendrá su comportamiento original) */
+#tabla-dorsales {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 0;
+    background-color: #ffe29a;
+}
+
+.tabla-dorsales-container {
+    background: white;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 90%;
+    text-align: center;
+    overflow-x: auto;
+}
+
+* Contenedor de los botones */
+.btn-container {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 90%;
+}
+
+/* Estilos de los botones */
+button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cargar {
+    background-color: #007bff;  /* Azul */
+    color: white;
+}
+
+.btn-cargar:hover {
+    background-color: #0056b3;
+}
+
+.btn-guardar {
+    background-color: #6c757d;  /* Gris */
+    color: white;
+}
+
+.btn-guardar:hover {
+    background-color: #5a6268;
+}
+
+.btn-generar {
+    background-color: #28a745;  /* Verde */
+    color: white;
+    margin-left: auto;  /* Alineado a la derecha */
+}
+
+.btn-generar:hover {
+    background-color: #218838;
+}
+
+/* Estilo para el contenedor de la tabla cuando está vacía */
+.table-container.empty {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+/* Contenedor para el select que permitirá mostrar la flecha hacia abajo */
+.select-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Estilos para el select dentro del contenedor */
+.select-container select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 6px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Flecha hacia abajo utilizando el pseudo-elemento ::after en el contenedor */
+.select-container::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #007bff;
+    font-size: 12px;  /* Ajusta el tamaño de la flecha si es necesario */
+}
+
+/* Clases para los fondos de los selectores de Golden Race */
+.select-container.oro select {
+    background-color: #ffe066; /* Oro */
+}
+
+.select-container.plata select {
+    background-color: #d3d3d3; /* Plata */
+}
+
+.select-container.bronce select {
+    background-color: #e0a96d; /* Bronce */
+}
+
+/* Estilo al pasar el ratón por encima del selector */
+.select-container select:hover {
+    border-color: #007bff;
+}
+
+/* Contenedor para múltiples selectores con separación */
+.contenedor-selectores {
+    display: flex;
+    gap: 10px;
+}
+
+td.celda-golden {
+    background-color: #ffe066;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+td.celda-golden sub {
+    font-size: 10px;
+    color: #555;
+    display: block;
+    margin-top: 4px;
+}
+
+.dorsal-cell {
+    border: 1px solid #ddd;
+    padding: 6px 8px; /* Ajustado al estilo de la otra tabla */
+    text-align: center;
+    background-color: #ffe29a; /* Fondo gris claro */
+    font-size: 12px; /* Tamaño de fuente a 12px */
+}
+
+/* Color base (amarillo) */
+.dorsal-cell.amarillo {
+    background-color: #ffe29a; /* Amarillo intermedio */
+    color: black;
+}
+
+/* Seleccionado una vez (verde) */
+.dorsal-cell.verde {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+/* Seleccionado más de una vez (rojo) */
+.dorsal-cell.rojo {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
