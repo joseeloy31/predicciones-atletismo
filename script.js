@@ -3,6 +3,7 @@ const config = `[
     {
         "prueba": "60m (m)",
         "atletas": [
+            "Seleccionar",
             "AGGERH Barnabas",
             "AL BALUSHI Ali",
             "AWUAH BAFFOUR Stephen",
@@ -73,6 +74,7 @@ const config = `[
     {
         "prueba": "400m (m)",
         "atletas": [
+            "Seleccionar",
             "BAILEY Christopher",
             "BALUCH Matej",
             "DESENSKÝ Michal",
@@ -109,6 +111,7 @@ const config = `[
     {
         "prueba": "800m (m)",
         "atletas": [
+            "Seleccionar",
             "ALZOFAIRI Ebrahim",
             "ARRIBA DE Álvaro",
             "BEN Adrián",
@@ -143,6 +146,7 @@ const config = `[
     {
         "prueba": "1500m (m)",
         "atletas": [
+            "Seleccionar",
             "BEN Adrián",
             "BOLAÑOS HERNÁNDEZ Aarón Alexander",
             "BUSSOTTI NEVES Joao",
@@ -178,6 +182,7 @@ const config = `[
     {
         "prueba": "3000m (m)",
         "atletas": [
+            "Seleccionar",
             "AREGAWI Berihu",
             "COSCORAN Andrew",
             "ESSAYI Anass",
@@ -199,6 +204,7 @@ const config = `[
     {
         "prueba": "60m vallas (m)",
         "atletas": [
+            "Seleccionar",
             "ABAKAR Doudai Oumar",
             "ALYOUHA Yaqoub",
             "ANTON Alin Ionuț",
@@ -241,6 +247,7 @@ const config = `[
     {
         "prueba": "Altura (m)",
         "atletas": [
+            "Seleccionar",
             "BECKFORD Romaine",
             "CASTRO RIVERA Luis",
             "DOROSHCHUK Oleh",
@@ -259,6 +266,7 @@ const config = `[
     {
         "prueba": "Pértiga (m)",
         "atletas": [
+            "Seleccionar",
             "BAEHRE LITA Bo Kanda",
             "COLLET Thibaut",
             "DUPLANTIS Armand",
@@ -277,6 +285,7 @@ const config = `[
     {
         "prueba": "Longitud (m)",
         "atletas": [
+            "Seleccionar",
             "ADCOCK Liam",
             "BALDÉ Gerson",
             "CRUMP Cameron",
@@ -297,6 +306,7 @@ const config = `[
     {
         "prueba": "Triple (m)",
         "atletas": [
+            "Seleccionar",
             "BIASUTTI Simone",
             "CLAYE Will",
             "DALLAVALLE Andrea",
@@ -318,6 +328,7 @@ const config = `[
     {
         "prueba": "60m (f)",
         "atletas": [
+            "Seleccionar",
             "AHYE Michelle-Lee",
             "AZEVEDO Ana Carolina",
             "BARNES Celera",
@@ -370,6 +381,7 @@ const config = `[
     {
         "prueba": "400m (f)",
         "atletas": [
+            "Seleccionar",
             "ANDERSON Leah",
             "ANNING Amber",
             "BASSI DE Anny Caroline",
@@ -390,6 +402,7 @@ const config = `[
     {
         "prueba": "800m (f)",
         "atletas": [
+            "Seleccionar",
             "AKINS Nia",
             "ALEMU Habitam",
             "ANDREWS-PAUL Alison",
@@ -421,6 +434,7 @@ const config = `[
     {
         "prueba": "1500m (f)",
         "atletas": [
+            "Seleccionar",
             "AFONSO Salomé",
             "BATRES RANGEL Lorena",
             "BELL HUNTER Georgia",
@@ -456,6 +470,7 @@ const config = `[
     {
         "prueba": "3000m (f)",
         "atletas": [
+            "Seleccionar",
             "COHEN Adva",
             "FITZGERALD Innes",
             "GARCÍA Marta",
@@ -475,6 +490,7 @@ const config = `[
     {
         "prueba": "60m vallas (f)",
         "atletas": [
+            "Seleccionar",
             "AHOLOU Tatiana",
             "BEITER BOMME Ida",
             "BROWN Amoi",
@@ -516,6 +532,7 @@ const config = `[
     {
         "prueba": "Altura (f)",
         "atletas": [
+            "Seleccionar",
             "ADESHINA Simbiat Temitope",
             "CUNNINGHAM Vashti",
             "HUFNAGEL Charity",
@@ -533,6 +550,7 @@ const config = `[
     {
         "prueba": "Pértiga (f)",
         "atletas": [
+            "Seleccionar",
             "AYRIS Imogen",
             "BONNIN Marie-Julie",
             "BRUNI Roberta",
@@ -551,6 +569,7 @@ const config = `[
     {
         "prueba": "Longitud (f)",
         "atletas": [
+            "Seleccionar",
             "BRYANT Claire",
             "CHARLTON Anthaya",
             "DIAME Fátima",
@@ -570,6 +589,7 @@ const config = `[
     {
         "prueba": "Triple (f)",
         "atletas": [
+            "Seleccionar",
             "CANDIDO Regiclecia",
             "DAVRONOVA Sharifa",
             "FILIPIČ Neja",
@@ -648,21 +668,21 @@ function crearOpcionesPrueba(prueba, datosPrueba, fila) {
 }
 
 /**
- * Agrega la fila de "Golden Race" al final de la tabla.
- * Se busca en jsonData la entrada cuyo valor 'prueba' sea igual a goldenRace,
+ * Agrega la fila de "Golden Event" al final de la tabla.
+ * Se busca en jsonData la entrada cuyo valor 'prueba' sea igual a godenEvent,
  * y se usan sus atletas para crear 3 desplegables usando la función crearOpcionesDesplegables.
  * Los desplegables se pintan con fondo oro, plata y bronce (según clases CSS).
  * @param {HTMLTableElement} tabla - La tabla donde se insertará la fila adicional.
  */
-function agregarFilaGoldenRace(tabla) {
+function agregarFilaGoldenEvent(tabla) {
     var tbody = tabla.querySelector("tbody");
-    var filaGoldenRace = document.createElement("tr");
+    var filaGoldenEvent = document.createElement("tr");
 
     var celdaNombre = document.createElement("td");
     celdaNombre.innerHTML = `Prueba de Oro: ${goldenEvent}<br><sub>podium +200 puntos, orden podium +300 puntos (máx +500 puntos)</sub>`;
     celdaNombre.colSpan = 2;
     celdaNombre.classList.add("celda-golden");
-    filaGoldenRace.appendChild(celdaNombre);
+    filaGoldenEvent.appendChild(celdaNombre);
 
     var celdaSelectores = document.createElement("td");
     celdaSelectores.colSpan = 4;
@@ -689,8 +709,8 @@ function agregarFilaGoldenRace(tabla) {
     }
 
     celdaSelectores.appendChild(contenedorSelectores);
-    filaGoldenRace.appendChild(celdaSelectores);
-    tbody.appendChild(filaGoldenRace);
+    filaGoldenEvent.appendChild(celdaSelectores);
+    tbody.appendChild(filaGoldenEvent);
 }
 
 /**
@@ -741,7 +761,7 @@ function generarFormulario() {
         tbody.appendChild(fila);
     }
 
-    agregarFilaGoldenRace(formTable);
+    agregarFilaGoldenEvent(formTable);
 }
 
 /**
@@ -875,7 +895,7 @@ function guardarPredicciones(mostrarAlerta = true) {
 
             resultado += `;${atletaOro};${atletaPlata};${atletaBronce}`;
         } else {
-            console.warn("No se encontraron suficientes selectores en la fila de Golden Race");
+            console.warn("No se encontraron suficientes selectores en la fila de Golden Event");
         }
     }
 
@@ -1080,8 +1100,8 @@ function cargarPredicciones() {
     // Rellenar la última fila de la tabla (Prueba de Oro)
     let ultimaLinea = lines[lines.length - 1].split(";");
     if (ultimaLinea.length >= 4) {
-        let filaGoldenRace = filas[filas.length - 1];  // Última fila (Golden Race)
-        let celdasUltima = filaGoldenRace.cells;
+        let filaGoldenEvent = filas[filas.length - 1];  // Última fila (Golden Event)
+        let celdasUltima = filaGoldenEvent.cells;
 
         // Rellenar los selectores de la prueba de oro
         let selectores = celdasUltima[1].querySelectorAll('select');
@@ -1136,18 +1156,18 @@ function validarPredicciones() {
         return false;
     }
 
-    // Validaciones de la última fila (Golden Race)
+    // Validaciones de la última fila (Golden Event)
     let ultimaFila = filas[filas.length - 1];
     let celdasUltima = ultimaFila.cells;
     
     if (celdasUltima.length >= 2) {
         let celdaSelectores = celdasUltima[1];
         let selectores = celdaSelectores.querySelectorAll('select');
-        let atletasGoldenRace = [];
+        let atletasGoldenEvent = [];
 
         for (let i = 0; i < 3; i++) {
             let atleta = selectores[i].value.trim();
-            atletasGoldenRace.push(atleta);
+            atletasGoldenEvent.push(atleta);
 
             // Validación 4: No se han seleccionado todos los atletas de la Prueba de Oro
             if (atleta === "Seleccionar") {
@@ -1157,7 +1177,7 @@ function validarPredicciones() {
         }
 
         // Validación 5: Se han de seleccionar 3 atletas distintos en la Prueba de Oro
-        let setAtletas = new Set(atletasGoldenRace);
+        let setAtletas = new Set(atletasGoldenEvent);
         if (setAtletas.size < 3) {
             alert("Se han de seleccionar 3 atletas distintos en la Prueba de Oro.");
             return false;
