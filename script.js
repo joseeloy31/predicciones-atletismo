@@ -849,7 +849,7 @@ function actualizarColoresDorsales() {
 }
 
 /**
- * Guarda las predicciones en la cookie "predicciones_ceurst_2025" con una validez de 10 días.
+ * Guarda las predicciones en la cookie "predicciones_cmunst_2025" con una validez de 10 días.
  * El contenido se construye a partir de los datos de la tabla de predicciones.
  * Se recorre cada fila de la tabla (excepto la cabecera) y se concatena la información
  * en formato CSV. Finalmente, se almacena en la cookie.
@@ -900,7 +900,7 @@ function guardarPredicciones(mostrarAlerta = true) {
     }
 
     // Guardar el contenido en la cookie con 10 días de validez
-    document.cookie = `predicciones_ceurst_2025=${encodeURIComponent(resultado)};max-age=${10 * 24 * 60 * 60};path=/`;
+    document.cookie = `predicciones_cmunst_2025=${encodeURIComponent(resultado)};max-age=${10 * 24 * 60 * 60};path=/`;
 
     // Mostrar mensaje de confirmación solo si mostrarAlerta es true
     if (mostrarAlerta) {
@@ -920,12 +920,12 @@ function generarPredicciones() {
     // Guardar las predicciones en la cookie sin mostrar alert
     guardarPredicciones(false);
 
-    // Leer la cookie "predicciones_ceurst_2025"
+    // Leer la cookie "predicciones_cmunst_2025"
     let cookies = document.cookie.split(';');
     let prediccionesCookie = null;
     cookies.forEach(cookie => {
         let [nombre, valor] = cookie.trim().split('=');
-        if (nombre === 'predicciones_ceurst_2025') {
+        if (nombre === 'predicciones_cmunst_2025') {
             prediccionesCookie = decodeURIComponent(valor);
         }
     });
@@ -935,7 +935,7 @@ function generarPredicciones() {
         return;
     }
 
-    alert('Se van a almacenar las predicciones en el archivo:\n\n${carpeta_descargas}/predicciones_ceurst_2025.csv');
+    alert('Se van a almacenar las predicciones en el archivo:\n\n${carpeta_descargas}/predicciones_cmunst_2025.csv');
 
     // Crear el Blob con el contenido de la cookie y generar la URL
     let blob = new Blob([prediccionesCookie], { type: 'text/csv;charset=utf-8;' });
@@ -944,7 +944,7 @@ function generarPredicciones() {
     // Crear un enlace para la descarga y simular el clic
     let enlace = document.createElement("a");
     enlace.href = url;
-    enlace.download = "predicciones_ceurst_2025.csv";
+    enlace.download = "predicciones_cmunst_2025.csv";
     document.body.appendChild(enlace);
 
     navigator.clipboard.writeText(prediccionesCookie);
@@ -1007,10 +1007,10 @@ function abrirGmailEnVentana(ventanaGmail) {
     //let destinatario = "joseeloy@gmail.com";
     //let asunto = "Predicciones Pilar Campeonato de Europa de Short Track 2025";
     //let cuerpo = `Hola Eloy,\n\nAdjunto te envío el archivo de predicciones.\n\n` +
-                 `{Adjunta el archivo de \${carpeta_descargas}/predicciones_ceurst_2025.csv}`;
+                 `{Adjunta el archivo de \${carpeta_descargas}/predicciones_cmunst_2025.csv}`;
     let asunto = "Predicciones Campeonato de Europa de Short Track 2025";
     let cuerpo = `Hola,\n\nAdjunto te envío el archivo de predicciones.\n\n` +
-                 `{Adjunta el archivo de \${carpeta_descargas}/predicciones_ceurst_2025.csv}`;
+                 `{Adjunta el archivo de \${carpeta_descargas}/predicciones_cmunst_2025.csv}`;
 
     //let gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(destinatario)}&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
     let gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
@@ -1019,7 +1019,7 @@ function abrirGmailEnVentana(ventanaGmail) {
 }
 
 /**
- * Carga las predicciones guardadas en la cookie "predicciones_ceurst_2025" y actualiza
+ * Carga las predicciones guardadas en la cookie "predicciones_cmunst_2025" y actualiza
  * los valores de los desplegables de la tabla de predicciones.
  *
  * El contenido de la cookie se espera en formato CSV, donde cada línea (excepto la última)
@@ -1039,10 +1039,10 @@ function cargarPredicciones() {
     let cookies = document.cookie.split(';');
     let prediccionesCookie = null;
 
-    // Buscar la cookie 'predicciones_ceurst_2025' en las cookies
+    // Buscar la cookie 'predicciones_cmunst_2025' en las cookies
     cookies.forEach(cookie => {
         let [nombre, valor] = cookie.trim().split('=');
-        if (nombre === 'predicciones_ceurst_2025') {
+        if (nombre === 'predicciones_cmunst_2025') {
             prediccionesCookie = decodeURIComponent(valor);  // Decodificar el valor de la cookie
         }
     });
